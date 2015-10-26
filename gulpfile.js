@@ -291,16 +291,3 @@ gulp.task('wiredep', function() {
 gulp.task('default', ['clean'], function() {
   gulp.start('build');
 });
-
-var gulp = require('gulp');
-var sftp = require('gulp-sftp');
- 
-gulp.task('deploy', function () {
-    return gulp.src('dist/**/*')
-        .pipe(sftp({
-            host: 'zastone.ba',
-            user: 'root',
-            passphrase: 'Phone#32629',
-            remotePath: '/home/krokodil/public_html/faktograf/site/wp-content/themes/faktograf/dist/'
-        }));
-});
