@@ -3,6 +3,7 @@
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 
 @import "common/_global";
@@ -11,6 +12,10 @@
 @import "components/_forms";
 @import "components/_grid";
 @import "components/_wp-classes";
+@import "components/_isotope";
+@import "components/_slickslider";
+@import "components/_typo";
+@import "components/_navbar";
 @import "layouts/_header";
 @import "layouts/_sidebar";
 @import "layouts/_footer";

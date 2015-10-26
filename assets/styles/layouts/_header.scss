@@ -1,0 +1,38 @@
+.branding{
+	background-color: $brand-primary;
+}
+.vertical-container .row {
+    display: table;
+    width: 100%;
+}
+.vertical-container .row > .col-sm-6 {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+.vertical-container .row > .col-sm-6 {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+
+.navbar-static-top .navbar-toggle{
+    margin-right:10px;
+}
+
+.navbar-static-top .navbar-brand {
+    padding: 0px 0px 0px 10px;
+}
+
+.navbar-static-top .navbar-brand img{
+    height:120px;
+}
+
+@media(min-width:$container-tablet) {
+    .navbar-static-top .navbar-brand {
+        padding: 0 10px 0 0;
+    }
+    .navbar-static-top .navbar-brand img{
+        height:120px;
+    }
+}

@@ -18,7 +18,9 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages
+        $(".slade").velocity("fadeIn", {
+            stagger: 200
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

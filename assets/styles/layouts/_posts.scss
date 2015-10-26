@@ -1,0 +1,9 @@
+.article-content{
+	padding: 0 1em;
+}
+
+@media(min-width:$container-sm) {
+	.article-content{
+		padding: 0 0em;
+	}
+}

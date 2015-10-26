@@ -7,7 +7,12 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "3.3.5"
+    "blueimp-gallery": "~2.16.0",
+    "bootstrap-sass": "3.3.5",
+    "font-awesome": "fontawesome#~4.4.0",
+    "imagesloaded": "~3.1.8",
+    "slick-carousel": "~1.5.8",
+    "velocity": "~1.2.3"
   },
   "overrides": {
     "bootstrap-sass": {

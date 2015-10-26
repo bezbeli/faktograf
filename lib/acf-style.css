@@ -1,0 +1,67 @@
+.acf-field-560bb4db76fd1 ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    overflow: scroll;
+}
+
+.acf-field-560bb4db76fd1 li {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.acf-field-560bb4db76fd1 input[type="radio"] {
+    display:none;
+}
+
+.acf-field-560bb4db76fd1 input[type="radio"] + label {
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    color: #666;
+    font-size: 20px;
+}
+
+.acf-field-560bb4db76fd1 input[type="radio"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor:pointer;
+}
+
+.acf-field-560bb4db76fd1 input[type="radio"] + label span {
+     background-color:transparent;
+     width: 40px;
+     height: 40px;
+     line-height: 40px;
+}
+
+.acf-field-560bb4db76fd1 input[type="radio"]:checked + label span{
+     background-color:#00a0d2;
+     border: 1px solid #0073aa;
+     color: #FFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;     
+}
+
+.acf-field-560bb4db76fd1 input[type="radio"]:checked + label{
+    line-height: 40px;
+}
+
+.acf-field-560bb4db76fd1 input[type="radio"] + label span,
+.acf-field-560bb4db76fd1 input[type="radio"]:checked + label span {
+  -webkit-transition:background-color 0.2s linear;
+  -o-transition:background-color 0.2s linear;
+  -moz-transition:background-color 0.2s linear;
+  transition:background-color 0.2s linear;
+}

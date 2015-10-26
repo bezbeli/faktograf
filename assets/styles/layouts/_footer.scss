@@ -1,0 +1,19 @@
+footer.content-info{
+	// border-top: 1px solid $gray-light;
+	padding-top: 4em;
+	padding-bottom: 4em;
+	margin-top: 3px;
+	background-color: darken($brand-secondary, 40%);
+	font-size: 14px;
+	color: $brand-secondary;
+
+	a{
+		color: lighten($gray-light, 10%);
+	}
+
+	a:hover {
+		color: $gray-lighter;
+		text-decoration: none;
+	}
+
+}

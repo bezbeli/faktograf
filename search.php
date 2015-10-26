@@ -11,4 +11,8 @@
   <?php get_template_part('templates/content', 'search'); ?>
 <?php endwhile; ?>
 
-<?php the_posts_navigation(); ?>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <?php Roots\Sage\Pagination\get_pagination(); ?>
+    </div>
+</div>

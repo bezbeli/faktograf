@@ -14,7 +14,16 @@ $sage_includes = [
   'lib/extras.php',  // Custom functions
   'lib/setup.php',   // Theme setup
   'lib/titles.php',  // Page titles
-  'lib/wrapper.php'  // Theme wrapper class
+  'lib/wrapper.php',  // Theme wrapper class
+  'lib/excerpt.php',
+  'lib/gallery.php',
+  'lib/image_utils.php',
+  'lib/nav.php',
+  'lib/pagination.php',
+  'lib/slider.php',
+  'lib/video.php',
+  'lib/editor_styles.php',
+  'lib/acf-pro.php'  // Theme wrapper class
 ];
 
 foreach ($sage_includes as $file) {

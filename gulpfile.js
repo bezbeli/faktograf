@@ -15,6 +15,7 @@ var merge        = require('merge-stream');
 var minifyCss    = require('gulp-minify-css');
 var plumber      = require('gulp-plumber');
 var rev          = require('gulp-rev');
+var rsync        = require('gulp-rsync');
 var runSequence  = require('run-sequence');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
@@ -289,4 +290,17 @@ gulp.task('wiredep', function() {
 // `gulp` - Run a complete build. To compile for production run `gulp --production`.
 gulp.task('default', ['clean'], function() {
   gulp.start('build');
+});
+
+var gulp = require('gulp');
+var sftp = require('gulp-sftp');
+ 
+gulp.task('deploy', function () {
+    return gulp.src('dist/**/*')
+        .pipe(sftp({
+            host: 'zastone.ba',
+            user: 'root',
+            passphrase: 'Phone#32629',
+            remotePath: '/home/krokodil/public_html/faktograf/site/wp-content/themes/faktograf/dist/'
+        }));
 });

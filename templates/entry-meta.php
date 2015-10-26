@@ -1,2 +1,7 @@
-<time class="updated" datetime="<?= get_post_time('c', true); ?>"><?= get_the_date(); ?></time>
-<p class="byline author vcard"><?= __('By', 'sage'); ?> <a href="<?= get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?= get_the_author(); ?></a></p>
+<p>
+<time class="updated" datetime="<?= get_post_time('c', true); ?>"><span class="glyphicon glyphicon-calendar"></span>  <?= get_the_date(); ?></time>
+	<span class="glyphicon glyphicon-user"></span> 
+	<?php __('Autor/ica:', 'sage');
+	echo get_field('autor') ? get_field('autor') : get_the_author();
+	?>
+</p>

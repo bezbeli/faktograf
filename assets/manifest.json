@@ -12,11 +12,16 @@
       ],
       "main": true
     },
+    "glyphicons.css": {
+      "files": [
+        "styles/glyphicons.scss"
+      ]
+    },
     "jquery.js": {
       "bower": ["jquery"]
     }
   },
   "config": {
-    "devUrl": "http://example.dev"
+    "devUrl": "http://faktograf.dv/"
   }
 }

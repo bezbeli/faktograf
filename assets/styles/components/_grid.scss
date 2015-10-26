@@ -2,8 +2,11 @@
 .main {
   @include make-sm-column($main-sm-columns);
   .sidebar-primary & {
-    @include make-sm-column($main-sm-columns - $sidebar-sm-columns);
+    @include make-sm-column($main-sm-columns - $sidebar-left-sm-columns - $sidebar-sm-columns);
   }
+}
+.sidebar-left {
+  @include make-sm-column($sidebar-left-sm-columns);
 }
 .sidebar {
   @include make-sm-column($sidebar-sm-columns);

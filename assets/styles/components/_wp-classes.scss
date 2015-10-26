@@ -19,11 +19,13 @@
   // Only float if not on an extra small device
   .alignleft {
     float: left;
-    margin-right: ($line-height-computed / 2);
+    margin-right: $line-height-computed;
+    width: 50%;
   }
   .alignright {
     float: right;
-    margin-left: ($line-height-computed / 2);
+    margin-left: $line-height-computed;
+    width: 50%;
   }
 }
 

@@ -4,10 +4,19 @@ namespace Roots\Sage\Setup;
 
 use Roots\Sage\Assets;
 
+
+
 /**
  * Theme setup
  */
 function setup() {
+
+if( function_exists('acf_add_options_page') ) {
+  
+  acf_add_options_page();
+  
+}
+
   // Enable features from Soil when plugin is activated
   // https://roots.io/plugins/soil/
   add_theme_support('soil-clean-up');
@@ -30,15 +39,20 @@ function setup() {
     'primary_navigation' => __('Primary Navigation', 'sage')
   ]);
 
+  register_nav_menus([
+    'footer_navigation' => __('Footer Navigation', 'sage')
+  ]);
+
   // Enable post thumbnails
   // http://codex.wordpress.org/Post_Thumbnails
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  add_image_size( 'featured-image', 900, 506, true );
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
-  add_theme_support('post-formats', ['aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio']);
+  // add_theme_support('post-formats', ['aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio']);
 
   // Enable HTML5 markup support
   // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
@@ -84,7 +98,7 @@ function display_sidebar() {
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
     is_front_page(),
-    is_page_template('template-custom.php'),
+    is_page_template('templates/template-layout-builder.php'),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
@@ -103,3 +117,4 @@ function assets() {
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
