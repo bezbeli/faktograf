@@ -1,0 +1,25 @@
+.pullquote-left,
+.pullquote-right {
+    margin-top: $line-height-computed;
+    margin-bottom: $line-height-computed;
+    width:100%;
+    height:auto;
+    padding: 0 1em;
+    font-size: 150%;
+    color: $brand-secondary;
+}
+
+@media (min-width: $screen-sm-min) {
+    .pullquote-left{
+        width: 50%;
+        padding: 0.5em 2em 1em 0;
+        margin:0;
+        float: left;
+    }
+    .pullquote-right{
+        width: 50%;
+        padding: 0.5em 0 1em 2em;
+        margin:0;
+        float: right;
+    }
+}
