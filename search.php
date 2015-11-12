@@ -2,9 +2,9 @@
 
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
-    <?php _e('Sorry, no results were found.', 'sage'); ?>
+    <?php _e('Žalimo, vaša pretraga nije dala niti jedan rezultat, pokušajte sa nekim sličnim pojmom.', 'sage'); ?>
   </div>
-  <?php get_search_form(); ?>
+  <?php //get_search_form(); ?>
 <?php endif; ?>
 
 <?php while (have_posts()) : the_post(); ?>

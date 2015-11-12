@@ -53,6 +53,15 @@ function my_acf_json_load_point( $paths ) {
     return $paths;
 }
 
+function one_up_stop_acf_update_notifications( $value ) {
+
+    // remove the plugin from the response so that it is not reported
+    unset( $value->response[ trim( get_template_directory(), '/' ) .'/lib/acf-pro/acf.php' ] );
+    return $value;
+}
+add_filter( 'site_transient_update_plugins', __NAMESPACE__ . '\\one_up_stop_acf_update_notifications', 11 );
+
+
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\dodaj_admin_scripts');
 function dodaj_admin_scripts() {
     // wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');

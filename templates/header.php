@@ -15,7 +15,6 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
                 <div id="navbar-collapse" class="collapse navbar-collapse">
-                <?php get_template_part('/templates/part-social' ); ?>
                 <?php
                     wp_nav_menu( array(
                         'menu'              => 'primary',
@@ -24,12 +23,13 @@
                         'container'         => '',
                         'container_class'   => '',
                         'container_id'      => '',
-                        'menu_class'        => 'nav navbar-nav navbar-right',
+                        'menu_class'        => 'nav navbar-nav',
                         'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
                         'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                         'walker'            => new wp_bootstrap_navwalker())
                     );
                 ?>
+                <?php get_template_part('/templates/part-social' ); ?>
             </div>
         </div>
         <!-- /.container -->

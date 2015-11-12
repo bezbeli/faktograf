@@ -1,6 +1,9 @@
 <?php
-$categories = Roots\Sage\Titles\custom_get_post_categories(get_the_id(),'slug', array('izdvojeno'));
-// var_export($categories);
+$categories_slug = Roots\Sage\Titles\custom_get_post_categories(get_the_id(),'slug', array('izdvojeno' , 'nekategorizirano'));
+$categories_name = Roots\Sage\Titles\custom_get_post_categories(get_the_id(),'name', array('Izdvojeno' , 'Nekategorizirano'));
+$categories = $categories_slug ? implode(' ', $categories_slug) : '';
+$categories_names = $categories_name ? implode(', ', $categories_name) : '';
+$related_articles_title = '<h4 class="block-title-single">Iz kategorije "' . $categories_names . '"</h4>';
 
 $args = array(
   'posts_per_page' => '2',
@@ -9,14 +12,14 @@ $args = array(
     array(
       'taxonomy'          => 'category',
       'field'             => 'slug',
-      'terms'             => $categories
+      'terms'             => $categories_slug
       ),
     ),
   );
 
 $custom_query = new WP_Query($args);
      if ( $custom_query->have_posts() ) {
-          echo '<h4 class="block-title-single">Iz kategorije "' . Roots\Sage\Titles\custom_get_post_categories(get_the_id(),'name', array('Izdvojeno')) . '"</h4>';
+          echo $related_articles_title;
           while ( $custom_query->have_posts() ) {
               $custom_query->the_post();
               echo '<div class="col-sm-6">';
@@ -27,7 +30,7 @@ $custom_query = new WP_Query($args);
               echo '<h4 class="absolute-bottom-left">';
               if (get_sub_field('show_categories_in_post_title') == true) {
                   echo '<span class="text-uppercase post-categories">';
-                  echo Roots\Sage\Titles\custom_get_post_categories(get_the_id(),'name', array('Izdvojeno'));
+                  echo $related_articles_title;
                   echo '</span><br>';
               }
               echo '<a class="pop" href="' . get_permalink() . '">';

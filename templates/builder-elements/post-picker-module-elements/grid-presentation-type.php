@@ -1,6 +1,6 @@
 <?php
 
-echo '<div class="row">';
+echo '<div class="row grid-block">';
 
 $pick_from_category = get_sub_field("pick_from_category");
 $show_posts = get_sub_field("show_posts");
@@ -71,7 +71,9 @@ if ( $query->have_posts() ) {
                      if (get_sub_field('show_categories_in_post_title') == true) {
                          echo '<span class="text-uppercase post-categories">';
                          // echo '<span class="glyphicon glyphicon-tag"></span>';
-                         echo Roots\Sage\Titles\custom_get_post_categories(get_the_id(),'name', array('Izdvojeno'));
+                         $categories_names = Roots\Sage\Titles\custom_get_post_categories(get_the_id(),'name', array('Izdvojeno'));
+                         $categories = $categories_names ? implode(' ', $categories_names) : '';
+                         echo $categories;
                          echo '</span><br>';
                      }
                      echo '<a class="pop" href="' . get_permalink() . '">';

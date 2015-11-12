@@ -31,6 +31,6 @@ function custom_get_post_categories($post_id, $field, $exclude = array() ){
       $output[] = $category->$field;
     }
   }
-  $output = $output ? implode(' ', $output) : '';
+  // $output = $output ? implode(' ', $output) : '';
   return $output;
 }

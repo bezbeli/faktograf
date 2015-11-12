@@ -182,6 +182,11 @@ hr{
 	z-index: 9;
 }
 
+.ocjena-single p{
+	margin: 0;
+	padding: 0;
+}
+
 .featured-image .ocjena-single{
 	width: 64px;
 	position: absolute;
@@ -319,4 +324,12 @@ hr{
 
 #mobile-social .menu-item a:hover{
 	color: $navbar-default-link-hover-color;
+}
+
+#menu-mainnav{
+	margin-left: 10px;
+}
+
+.grid-block{
+	background-color: #000;
 }

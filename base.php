@@ -37,7 +37,13 @@ use Roots\Sage\Wrapper;
                         
         ?>
         <?php endif; ?>
-        <?php 
+        <?php
+        $ocjena1 = get_field('ocjena1', 'options');
+        $ocjena2 = get_field('ocjena2', 'options');
+        $ocjena3 = get_field('ocjena3', 'options');
+        $ocjena4 = get_field('ocjena4', 'options');
+        $ocjena5 = get_field('ocjena5', 'options');
+
         $ocjena_tocnosti =      get_field("tocnost");
         $ocjena_dosljednosti =  get_field("dosljednost");
         if (is_single() && $ocjena_tocnosti != 0) : 
@@ -45,31 +51,31 @@ use Roots\Sage\Wrapper;
           switch ($ocjena_tocnosti) {
               case '1': // Ni F od fakta
                   echo '<span class="ocjena-single ocjena-single-1">';
-                  echo 'Ova tvrdnja u sebi ne sadrži nikakve činjenice dobila je ocjenu <strong>Ni F od fakta.</strong>';
+                  echo $ocjena1;
                   echo '</span>';
                   break;
               
               case '2': // Ni pola fakta
                   echo '<span class="ocjena-single ocjena-single-2">';
-                  echo 'Većinom netočne tvrdnje ocjenjena je ocjenom <strong>Ni pola fakta.</strong>';
+                  echo $ocjena2;
                   echo '</span>';
                   break;
               
               case '3': // Polufakt
                   echo '<span class="ocjena-single ocjena-single-3">';
-                  echo 'Tvrdnja nije niti sasvim točna, niti sasvim netočna – dobila je ocjenu <strong>Polufakt.</strong>';
+                  echo $ocjena3;
                   echo '</span>';
                   break;
               
               case '4': // Tri kvarta fakta
                   echo '<span class="ocjena-single ocjena-single-4">';
-                  echo 'Većinom točna tvrdnja i dobila je ocjenu <strong>Tri kvarta fakta.</strong>';
+                  echo $ocjena4;
                   echo '</span>';
                   break;
 
               case '5': // Fakt
                   echo '<span class="ocjena-single ocjena-single-5">';
-                  echo 'Za ovu tvrdnju je utvrđeno da je apsolutno točna i dobija ocjenu <strong>Fakt.</strong>';
+                  echo $ocjena5;
                   echo '</span>';
                   break;
               
