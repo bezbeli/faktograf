@@ -277,88 +277,102 @@ img.acf-fw {
   text-transform: none;
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
   /* Font smoothing. That was taken from TWBS */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  /* more consistent vertical align */
+  position: relative;
 }
-.acf-icon-plus:before {
+.acf-icon.-plus:before {
   content: '\e800';
 }
 /* '' */
-.acf-icon-minus:before {
+.acf-icon.-minus:before {
   content: '\e801';
 }
 /* '' */
-.acf-icon-cancel:before {
+.acf-icon.-cancel:before {
   content: '\e802';
 }
 /* '' */
-.acf-icon-pencil:before {
+.acf-icon.-pencil:before {
   content: '\e803';
+  top: -1px;
 }
 /* '' */
-.acf-icon-location:before {
+.acf-icon.-location:before {
   content: '\e804';
 }
 /* '' */
-.acf-icon-down:before {
+.acf-icon.-down:before {
   content: '\e805';
+  top: 1px;
 }
 /* '' */
-.acf-icon-left:before {
+.acf-icon.-left:before {
   content: '\e806';
+  left: -1px;
 }
 /* '' */
-.acf-icon-right:before {
+.acf-icon.-right:before {
   content: '\e807';
+  left: 1px;
 }
 /* '' */
-.acf-icon-up:before {
+.acf-icon.-up:before {
   content: '\e808';
+  top: -1px;
 }
 /* '' */
-.acf-icon-sync:before {
+.acf-icon.-sync:before {
   content: '\e809';
 }
 /* '' */
-.acf-icon-globe:before {
+.acf-icon.-globe:before {
   content: '\e80a';
 }
 /* '' */
-.acf-icon-picture:before {
+.acf-icon.-picture:before {
   content: '\e80b';
 }
 /* '' */
-.acf-icon-check:before {
+.acf-icon.-check:before {
   content: '\e80c';
 }
 /* '' */
-.acf-icon-dot-3:before {
+.acf-icon.-dot-3:before {
   content: '\e80d';
 }
 /* '' */
-.acf-icon-arrow-combo:before {
+.acf-icon.-arrow-combo:before {
   content: '\e80e';
 }
 /* '' */
-.acf-icon-arrow-down:before {
-  content: '\e80f';
-}
-/* '' */
-.acf-icon-arrow-up:before {
+.acf-icon.-arrow-up:before {
   content: '\e810';
+  top: -1px;
 }
 /* '' */
-.acf-icon-search:before {
+.acf-icon.-arrow-down:before {
+  content: '\e80f';
+  top: 1px;
+}
+/* '' */
+.acf-icon.-search:before {
   content: '\e811';
 }
 /* '' */
+/* collapse */
+.acf-icon.-collapse:before {
+  content: '\e810';
+  top: -1px;
+}
+/* arrow-up */
+.-collapsed .acf-icon.-collapse:before {
+  content: '\e80f';
+  top: 1px;
+}
+/* arrow-down */
 /* default */
 .acf-icon {
   display: inline-block;
@@ -367,7 +381,7 @@ img.acf-fw {
   border: transparent solid 1px;
   border-radius: 100%;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 26px;
   text-align: center;
   text-decoration: none;
   vertical-align: top;
@@ -388,23 +402,11 @@ a.acf-icon {
   transition: none;
 }
 /* minor tweaks */
-.acf-icon-pencil {
-  font-size: 14px;
+.acf-icon.-pencil {
+  font-size: 15px;
 }
-.acf-icon-pencil.small {
-  font-size: 12px;
-}
-.acf-icon-location {
+.acf-icon.-location {
   font-size: 18px;
-}
-.acf-icon-left:before {
-  left: -1px;
-  position: relative;
-}
-.acf-icon-sync.small,
-.acf-icon-arrow-up.small,
-.acf-icon-arrow-down.small {
-  font-size: 14px;
 }
 /* states */
 a.acf-icon:hover {
@@ -417,15 +419,16 @@ a.acf-icon:focus {
   outline: none;
   box-shadow: none;
 }
-a.acf-icon-minus:hover,
-a.acf-icon-cancel:hover {
+a.acf-icon.-minus:hover,
+a.acf-icon.-cancel:hover {
   background-color: #F55E4F;
 }
 /* sizes */
 .acf-icon.small {
   width: 18px;
   height: 18px;
-  line-height: 17px;
+  line-height: 18px;
+  font-size: 14px;
 }
 /* styles */
 .acf-icon.light {
@@ -447,8 +450,8 @@ a.acf-icon.dark:hover {
   background: #191E23;
   color: #00b9eb;
 }
-a.acf-icon-minus.dark:hover,
-a.acf-icon-cancel.dark:hover {
+a.acf-icon.-minus.dark:hover,
+a.acf-icon.-cancel.dark:hover {
   color: #D54E21;
 }
 /* grey */
@@ -462,8 +465,8 @@ a.acf-icon.grey:hover {
   background: #00A0D2;
   color: #fff;
 }
-a.acf-icon-minus.grey:hover,
-a.acf-icon-cancel.grey:hover {
+a.acf-icon.-minus.grey:hover,
+a.acf-icon.-cancel.grey:hover {
   background: #32373C;
 }
 /* red */
@@ -973,7 +976,7 @@ a.acf-icon-cancel.grey:hover {
 *--------------------------------------------------------------------------------------------*/
 #acf-popup {
   position: fixed;
-  z-index: 9999;
+  z-index: 999999;
   top: 0;
   left: 0;
   right: 0;
@@ -1214,5 +1217,6 @@ html[dir="rtl"] .acf-table > tbody > tr > td.order + td {
   .acf-columns-2 .acf-column-2 {
     float: none;
     width: auto;
+    margin: 0;
   }
 }

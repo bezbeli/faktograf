@@ -41,6 +41,7 @@ class acf_field_repeater extends acf_field {
 			'max'			=> 0,
 			'layout' 		=> 'table',
 			'button_label'	=> __("Add Row",'acf'),
+			'collapsed'		=> ''
 		);
 		$this->l10n = array(
 			'min'			=>	__("Minimum rows reached ({min} rows)",'acf'),
@@ -118,12 +119,6 @@ class acf_field_repeater extends acf_field {
 		// populate the empty row data (used for acfcloneindex and min setting)
 		$empty_row = array();
 		
-		foreach( $field['sub_fields'] as $f ) {
-			
-			$empty_row[ $f['key'] ] = isset( $f['default_value'] ) ? $f['default_value'] : null;
-			
-		}
-				
 		
 		// If there are less values than min, populate the extra values
 		if( $field['min'] ) {
@@ -222,7 +217,29 @@ class acf_field_repeater extends acf_field {
 		));
 		
 		
+		// collapsed
+		$collapsed = array();
 		
+		if( $field['collapsed'] ) {
+			
+			// get user setting
+			$collapsed = acf_get_user_setting('collapsed_' . $field['key'], '');
+			$collapsed = explode(',', $collapsed);
+			$collapsed = array_filter($collapsed, 'is_numeric');
+			
+			
+			// add target class
+			foreach( array_keys($field['sub_fields']) as $i ) {
+				
+				if( $field['sub_fields'][ $i ]['key'] === $field['collapsed'] ) {
+					
+					$field['sub_fields'][ $i ]['wrapper']['class'] .= ' -collapsed-target';
+					
+				}
+								
+			}
+			
+		}
 		
 ?>
 <div <?php acf_esc_attr_e($div); ?>>
@@ -232,15 +249,19 @@ class acf_field_repeater extends acf_field {
 		<thead>
 			<tr>
 				<?php if( $show_order ): ?>
-					<th class="order"><span class="order-spacer"></span></th>
+					<th class="acf-row-handle"><span></span></th>
 				<?php endif; ?>
 				
 				<?php foreach( $field['sub_fields'] as $sub_field ): 
 					
 					$atts = array(
-						'class'		=> "acf-th acf-th-{$sub_field['name']}",
+						'class'		=> 'acf-th',
 						'data-key'	=> $sub_field['key'],
 					);
+					
+					
+					// add type
+					$atts['class'] .= ' acf-th-' . $sub_field['type'];
 					
 					
 					// Add custom width
@@ -261,18 +282,37 @@ class acf_field_repeater extends acf_field {
 				<?php endforeach; ?>
 
 				<?php if( $show_remove ): ?>
-					<th class="remove"><span class="remove-spacer"></span></th>
+					<th class="acf-row-handle"><span></span></th>
 				<?php endif; ?>
 			</tr>
 		</thead>
 	<?php endif; ?>
 	
 	<tbody>
-		<?php foreach( $field['value'] as $i => $row ): ?>
-			<tr class="acf-row<?php echo ($i === 'acfcloneindex') ? ' acf-clone' : ''; ?>">
+		<?php foreach( $field['value'] as $i => $row ): 
+			
+			$row_class = 'acf-row';
+			
+			if( $i === 'acfcloneindex' ) {
+				
+				$row_class .= ' acf-clone';
+				
+			} elseif( in_array($i, $collapsed) ) {
+				
+				$row_class .= ' -collapsed';
+				
+			}
+			
+			?>
+			<tr class="<?php echo $row_class; ?>" data-id="<?php echo $i; ?>">
 				
 				<?php if( $show_order ): ?>
-					<td class="order" title="<?php _e('Drag to reorder','acf'); ?>"><?php echo intval($i) + 1; ?></td>
+					<td class="acf-row-handle order" title="<?php _e('Drag to reorder','acf'); ?>">
+						<?php if( $field['collapsed'] ): ?>
+						<a class="acf-icon -collapse small" href="#" data-event="collapse-row" title="<?php _e('Click to toggle','acf'); ?>"></a>
+						<?php endif; ?>
+						<span><?php echo intval($i) + 1; ?></span>
+					</td>
 				<?php endif; ?>
 				
 				<?php echo $before_fields; ?>
@@ -313,9 +353,9 @@ class acf_field_repeater extends acf_field {
 				<?php echo $after_fields; ?>
 				
 				<?php if( $show_remove ): ?>
-					<td class="remove">
-						<a class="acf-icon acf-icon-plus small acf-repeater-add-row" href="#" data-before="1" title="<?php _e('Add row','acf'); ?>"></a>
-						<a class="acf-icon acf-icon-minus small acf-repeater-remove-row" href="#" title="<?php _e('Remove row','acf'); ?>"></a>
+					<td class="acf-row-handle remove">
+						<a class="acf-icon -plus small" href="#" data-event="add-row" title="<?php _e('Add row','acf'); ?>"></a>
+						<a class="acf-icon -minus small" href="#" data-event="remove-row" title="<?php _e('Remove row','acf'); ?>"></a>
 					</td>
 				<?php endif; ?>
 				
@@ -327,7 +367,7 @@ class acf_field_repeater extends acf_field {
 	
 	<ul class="acf-hl">
 		<li class="acf-fr">
-			<a href="#" class="acf-button blue acf-repeater-add-row"><?php echo $field['button_label']; ?></a>
+			<a href="#" class="acf-button blue" data-event="add-row"><?php echo $field['button_label']; ?></a>
 		</li>
 	</ul>
 			
@@ -381,6 +421,25 @@ class acf_field_repeater extends acf_field {
 		$field['min'] = empty($field['min']) ? '' : $field['min'];
 		$field['max'] = empty($field['max']) ? '' : $field['max'];
 		
+		
+		// preview
+		$choices = array();
+		
+		if( $field['collapsed'] ) {
+			
+			$choices[ $field['collapsed'] ] = $field['collapsed'];
+			
+		}
+		
+		
+		acf_render_field_setting( $field, array(
+			'label'			=> __('Collapsed','acf'),
+			'instructions'	=> __('Select a sub field to show when row is collapsed','acf'),
+			'type'			=> 'select',
+			'name'			=> 'collapsed',
+			'allow_null'	=> 1,
+			'choices'		=> $choices
+		));
 		
 		
 		// min
@@ -528,7 +587,7 @@ class acf_field_repeater extends acf_field {
 		// bail early if no value
 		if( empty($value) || empty($field['sub_fields']) ) {
 						
-			return $value;
+			return false;
 			
 		}
 		
@@ -728,7 +787,7 @@ class acf_field_repeater extends acf_field {
 		
 		
 		// get old value (db only)
-		$old_total = intval( acf_get_value( $post_id, $field, true ) );
+		$old_total = (int) acf_get_metadata( $post_id, $field['name'] );
 		
 		if( $old_total > $total ) {
 			
@@ -778,7 +837,7 @@ class acf_field_repeater extends acf_field {
 	function delete_value( $post_id, $key, $field ) {
 		
 		// get old value (db only)
-		$old_total = intval( acf_get_value( $post_id, $field, true ) );
+		$old_total = (int) acf_get_metadata( $post_id, $field['name'] );
 		
 		
 		// bail early if no rows or no sub fields

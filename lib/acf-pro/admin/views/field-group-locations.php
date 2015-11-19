@@ -122,7 +122,7 @@ $rule_operators = apply_filters( 'acf/location/rule_operators', array(
 									<a href="#" class="acf-button add-location-rule"><?php _e("and",'acf'); ?></a>
 								</td>
 								<td class="remove">
-									<a href="#" class="acf-icon acf-icon-minus remove-location-rule"></a>
+									<a href="#" class="acf-icon -minus remove-location-rule"></a>
 								</td>
 								</tr>
 							<?php endforeach; ?>

@@ -61,4 +61,3 @@ function load_custom_wp_admin_style() {
   wp_enqueue_style('glyphicons_styles', asset_path('styles/glyphicons.css'), false, null);
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\load_custom_wp_admin_style' );
-

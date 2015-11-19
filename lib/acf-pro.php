@@ -22,10 +22,10 @@ function my_acf_settings_dir( $dir ) {
 }
  
 
-$user = wp_get_current_user();
-if ( !in_array( 'muad_dib', (array) $user->roles ) ) {
-    add_filter('acf/settings/show_admin', '__return_false');
-}
+// $user = wp_get_current_user();
+// if ( !in_array( 'muad_dib', (array) $user->roles ) ) {
+//     add_filter('acf/settings/show_admin', '__return_false');
+// }
 
 
 
@@ -53,6 +53,13 @@ function my_acf_json_load_point( $paths ) {
     return $paths;
 }
 
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\dodaj_admin_scripts');
+function dodaj_admin_scripts() {
+    // wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+    wp_enqueue_style( 'acf_styles', get_template_directory_uri() . '/lib/acf-style.css');
+    wp_enqueue_script( 'acf_script', get_template_directory_uri() . '/lib/acf-script.js');
+}
+
 function one_up_stop_acf_update_notifications( $value ) {
 
     // remove the plugin from the response so that it is not reported
@@ -60,11 +67,3 @@ function one_up_stop_acf_update_notifications( $value ) {
     return $value;
 }
 add_filter( 'site_transient_update_plugins', __NAMESPACE__ . '\\one_up_stop_acf_update_notifications', 11 );
-
-
-add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\dodaj_admin_scripts');
-function dodaj_admin_scripts() {
-    // wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
-    wp_enqueue_style( 'acf_styles', get_template_directory_uri() . '/lib/acf-style.css');
-    wp_enqueue_script( 'acf_script', get_template_directory_uri() . '/lib/acf-script.js');
-}

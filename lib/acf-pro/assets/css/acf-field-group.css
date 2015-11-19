@@ -118,7 +118,7 @@
   background: transparent;
   float: left;
   height: 28px;
-  line-height: 27px;
+  line-height: 28px;
   width: 28px;
   font-size: 13px;
   color: #444;
@@ -359,4 +359,26 @@ html[dir="rtl"] .acf-field-object.open > .handle .acf-icon {
 html[dir="rtl"] .acf-field-object.open > .handle .li-field-order {
   padding-left: 0 !important;
   padding-right: 15px !important;
+}
+/*---------------------------------------------------------------------------------------------
+*
+*  Device
+*
+*---------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 850px) {
+  tr.acf-field,
+  td.acf-label,
+  td.acf-input {
+    display: block !important;
+    width: auto !important;
+    border: 0 none !important;
+  }
+  tr.acf-field {
+    border-top: #ededed solid 1px !important;
+    margin-bottom: 0 !important;
+  }
+  td.acf-label {
+    background: transparent !important;
+    padding-bottom: 0 !important;
+  }
 }

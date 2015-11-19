@@ -149,7 +149,7 @@ if( empty($groups) ) {
 									<a href="#" class="acf-button add-conditional-rule"><?php _e("and",'acf'); ?></a>
 								</td>
 								<td class="remove">
-									<a href="#" class="acf-icon acf-icon-minus remove-conditional-rule"></a>
+									<a href="#" class="acf-icon -minus remove-conditional-rule"></a>
 								</td>
 								</tr>
 							<?php endforeach; ?>

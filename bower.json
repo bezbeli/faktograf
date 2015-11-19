@@ -12,9 +12,17 @@
     "font-awesome": "fontawesome#~4.4.0",
     "imagesloaded": "~3.1.8",
     "slick-carousel": "~1.5.8",
-    "velocity": "~1.2.3"
+    "velocity": "~1.2.3",
+    "jquery-ias": "~2.2.1"
   },
   "overrides": {
+    "jquery-ias": {
+      "main": [
+        "src/callbacks.js",
+        "src/jquery-ias.js",
+        "src/extension/*"
+        ]
+      },
     "bootstrap-sass": {
       "main": [
         "./assets/stylesheets/_bootstrap.scss",

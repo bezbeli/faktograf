@@ -241,10 +241,10 @@ class acf_field_flexible_content extends acf_field {
 			<?php endforeach; ?>
 		<?php endif; ?>
 	</div>
-
+	
 	<ul class="acf-hl">
 		<li class="acf-fr">
-			<a href="#" class="acf-button blue acf-fc-add"><?php echo $field['button_label']; ?></a>
+			<a href="#" class="acf-button blue" data-event="add-layout"><?php echo $field['button_label']; ?></a>
 		</li>
 	</ul>
 	
@@ -265,7 +265,6 @@ class acf_field_flexible_content extends acf_field {
 					</li>
 				<?php endforeach; ?>
 			</ul>
-			<div class="bit"></div>
 			<a href="#" class="focus"></a>
 		</div>
 	</script>
@@ -296,22 +295,35 @@ class acf_field_flexible_content extends acf_field {
 		$el = 'div';
 		$div = array(
 			'class'			=> 'layout',
+			'data-id'		=> $i,
 			'data-layout'	=> $layout['name']
 		);
 		
 	
 		// collapsed
-		$cookie = acf_maybe_get($_COOKIE, "acf_collapsed_{$field['key']}", '');
+		$collapsed = acf_get_user_setting('collapsed_' . $field['key'], '');
 		
-		if( $cookie !== '' ) {
+		
+		// cookie fallback ( version < 5.3.2 )
+		if( $collapsed === '' ) {
 			
-			$collapsed = explode('|', $cookie);
+			$collapsed = acf_extract_var($_COOKIE, "acf_collapsed_{$field['key']}", '');
+			$collapsed = str_replace('|', ',', $collapsed);
 			
-			if( in_array($i, $collapsed) ) {
+			acf_update_user_setting( 'collapsed_' . $field['key'], $collapsed );
 				
-				$div['class'] .= ' closed';
-				
-			}
+		}
+		
+		
+		// explode
+		$collapsed = explode(',', $collapsed);
+		$collapsed = array_filter($collapsed, 'is_numeric');
+			
+		
+		// collapsed class
+		if( in_array($i, $collapsed) ) {
+			
+			$div['class'] .= ' -collapsed';
 			
 		}
 		
@@ -336,21 +348,18 @@ class acf_field_flexible_content extends acf_field {
 	</div>
 	
 	<div class="acf-fc-layout-handle">
-		<span class="fc-layout-order"><?php echo $order; ?></span> <span class="layout-label"><?php echo $layout['label'];?></span>
+		<span class="fc-layout-order"><?php echo $order; ?></span> <span class="layout-label"><?php echo $layout['label']; ?></span>
 	</div>
 	
 	<ul class="acf-fc-layout-controlls acf-hl">
 		<li class="acf-fc-show-on-hover">
-			<a class="acf-icon acf-icon-plus small acf-fc-add" href="#" data-before="1" title="<?php _e('Add layout','acf'); ?>"></a>
+			<a class="acf-icon -plus small" href="#" data-event="add-layout" title="<?php _e('Add layout','acf'); ?>"></a>
 		</li>
 		<li class="acf-fc-show-on-hover">
-			<a class="acf-icon acf-icon-minus small acf-fc-remove" href="#" title="<?php _e('Remove layout','acf'); ?>"></a>
+			<a class="acf-icon -minus small" href="#" data-event="remove-layout" title="<?php _e('Remove layout','acf'); ?>"></a>
 		</li>
-		<li class="acf-fc-show-on-open">
-			<i class="acf-icon acf-icon-arrow-up small acf-fc-toggle" title="<?php _e('Click to toggle','acf'); ?>"></i>
-		</li>
-		<li class="acf-fc-show-on-close">
-			<i class="acf-icon acf-icon-arrow-down small acf-fc-toggle" title="<?php _e('Click to toggle','acf'); ?>"></i>
+		<li>
+			<a class="acf-icon -collapse small" href="#" data-event="collapse-layout" title="<?php _e('Click to toggle','acf'); ?>"></a>
 		</li>
 	</ul>
 	
@@ -753,7 +762,7 @@ class acf_field_flexible_content extends acf_field {
 		// bail early if no value
 		if( empty($value) || empty($field['layouts']) ) {
 			
-			return $value;
+			return false;
 			
 		}
 		
@@ -1021,7 +1030,7 @@ class acf_field_flexible_content extends acf_field {
 		
 		
 		// remove old data
-		$old_order = acf_get_value( $post_id, $field, true );
+		$old_order = acf_get_metadata( $post_id, $field['name'] );
 		$old_count = empty($old_order) ? 0 : count($old_order);
 		$new_count = empty($order) ? 0 : count($order);
 		

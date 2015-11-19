@@ -21,6 +21,23 @@
         $(".slade").velocity("fadeIn", {
             stagger: 200
         });
+        var ias = jQuery.ias({
+            container: ".infinite-scroll",
+            item: ".item",
+            pagination: ".pagination",
+            next: ".next-posts",
+            delay: 1000
+          });
+        ias.extension(new IASSpinnerExtension({
+            src: "http://faktograf.dv/site/wp-content/themes/faktograf/dist/images/ajax-loader.gif"
+        }));
+        ias.extension(new IASTriggerExtension({
+            offset: 3,
+            text: "Više..."
+        }));
+        ias.extension(new IASNoneLeftExtension({
+            text: 'Nema više objava'
+        }));
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

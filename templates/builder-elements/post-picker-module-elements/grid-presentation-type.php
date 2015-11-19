@@ -2,62 +2,81 @@
 
 echo '<div class="row grid-block">';
 
-$pick_from_category = get_sub_field("pick_from_category");
-$show_posts = get_sub_field("show_posts");
-$offset_posts = get_sub_field("offset_posts");
+$posts_source =         get_sub_field('posts_source');
+$show_posts =           get_sub_field('show_posts');
+$offset_posts =         get_sub_field('offset_posts');
+$show_pagination =      get_sub_field('show_pagination');
+$sticky =               get_option('sticky_posts');
 
-if ($pick_from_category) {
-    $args = array(
-        'posts_per_page'            => $show_posts,
-        'offset'                    => $offset_posts,
-        'tax_query' => array(
-            array(
-                'taxonomy'          => 'category',
-                'field'             => 'id',
-                'terms'             => $pick_from_category
+// rsort( $sticky );
+// $sticky = array_slice( $sticky, 0, 5 );
+
+switch ($posts_source) {
+    case 'pick_from_category':
+        $pick_from_category = get_sub_field("pick_from_category");
+        $display_count = $show_posts;
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $offset = ( $paged - 1 ) * $display_count+$offset_posts;
+        $args = array(
+            'posts_per_page'    => $show_posts,
+            'paged'             => $paged,
+            'offset'            => $offset,
+            'tax_query' => array(
+                array(
+                    'taxonomy'  => 'category',
+                    'field'     => 'id',
+                    'terms'     => $pick_from_category
+                ),
             ),
-        ),
-    );
-} else if (get_sub_field("posts")) {
-    $ids = get_sub_field('posts', false, false);
-    $args = array(
-        'post__in'      => $ids
-    );
-} else if (get_sub_field("parent_page")) {
-    $ids = get_sub_field('parent_page', false, false);
-    // var_export($ids);
-    // echo 'Djeca postovi';
-    $args = array(
-        'post_parent'       => $ids,
-        'post_type'         => 'page',
-        'orderby'           => 'menu_order',
-        'order'             => 'ASC'
-    );
+        );
+        break;
+    case 'custom_post_picker':
+        $ids = get_sub_field('posts', false, false);
+        $args = array(
+            'post__not_in'      => $sticky,
+            'post_type'         => 'any',
+            'post__in'          => $ids,
+            'orderby'           => 'post__in',
+        );
+        break;
+    case 'parent_page':
+        $ids = get_sub_field('parent_page', false, false);
+        $args = array(
+            'post_parent'       => $ids,
+            'post_type'         => 'page',
+            'orderby'           => 'menu_order',
+            'order'             => 'ASC'
+        );
+        break;
+    default:
+        echo 'no post source selected';
+        break;
 }
 
-$query = new WP_Query( $args );
-if ( $query->have_posts() ) {
-     while ( $query->have_posts() ) {
-         $query->the_post();
+
+$wp_query = new WP_Query( $args );
+if ( $wp_query->have_posts() ) {
+     while ( $wp_query->have_posts() ) {
+         $wp_query->the_post();
              $grid = get_sub_field("grid");
                  switch($grid) {
                    case '1column':
-                     echo '<div class="col-sm-12">';
+                     echo '<div class="item col-sm-12">';
                      break;
                    case '2columns':
-                     echo '<div class="col-sm-6">';
+                     echo '<div class="item col-sm-6">';
                      break;
                    case '3columns':
-                     echo '<div class="col-sm-4">';
+                     echo '<div class="item col-sm-4">';
                      break;
                    case '4columns':
-                     echo '<div class="col-sm-3">';
+                     echo '<div class="item col-sm-3">';
                      break;
                    case '6columns':
-                     echo '<div class="col-sm-2">';
+                     echo '<div class="item col-sm-2">';
                      break;
                    default:
-                     echo '<div class="col-sm-3">';
+                     echo '<div class="item col-sm-3">';
                      break;
                  }
                  // $field = get_field_object('featured_symbol');
@@ -97,5 +116,13 @@ if ( $query->have_posts() ) {
      }
 };
 echo '</div>';
+        if ($show_pagination) {
+            echo '<div class="row">';
+            echo '<div class="col-md-12 text-center">';
+                    Roots\Sage\Pagination\get_pagination();
+            echo '</div>';
+            echo '</div>';
+        }
 wp_reset_query();
 ?>
+

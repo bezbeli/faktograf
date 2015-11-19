@@ -1096,9 +1096,9 @@ function _acf_get_field_by_name( $name = '', $db_only = false ) {
 
 function acf_maybe_get_field( $selector, $post_id = false, $strict = true ) {
 	
-	// complete loading
+	// complete init
 	// this function may be used in a theme file before the init action has been run
-	acf()->complete();
+	acf()->init();
 	
 	
 	// vars

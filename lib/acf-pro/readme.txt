@@ -106,6 +106,26 @@ http://support.advancedcustomfields.com/
 
 == Changelog ==
 
+= 5.3.2.2 =
+* Core: Fixed PHP error when registering a local field missing one of more settings
+* Core: Fixed incorrect json load_path setting when WPML is active
+* Language: Updated Polish translation - thanks to Michal Lepiarz
+
+= 5.3.2.1 =
+* Core: Fixed bug causing issues when loading values from an options page, widget or taxonomy term
+
+= 5.3.2 =
+* Repeater field: Added new setting and icon to collapse row
+* Google Maps: Improved google API loading for better theme compatibility
+* Taxonomy field: Fixed bug where 'Add new term' popup only showed 20 parent terms
+* Core: Added new setting 'export_translate' to customise which field settings should be wrapped in __()
+* Core: Improved efficiency of AJAX call when finding new field groups when editing a post
+* API: Added new functions add_row(), update_row() and delete_row()
+* Language: Updated German translation - thanks to Ralf Koller
+* Language: Updated Italian translation - thanks to Davide Pantè
+* Language: Updated Dutch translation - thanks to Derk Oosterveld
+* Language: Updated Portuguese translation - thanks to Augusto Simão
+
 = 5.3.1 =
 * Flexible Content field: added toggle icons to show layout open/close state
 * Gallery field: Fixed bug where images could not save a blank title value

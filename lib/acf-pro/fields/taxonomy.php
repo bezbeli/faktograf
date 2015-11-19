@@ -80,7 +80,7 @@ class acf_field_taxonomy extends acf_field {
 			'post_id'		=> 0,
 			's'				=> '',
 			'field_key'		=> '',
-			'paged'			=> 1
+			'paged'			=> 0
 		));
 		
 		
@@ -98,6 +98,7 @@ class acf_field_taxonomy extends acf_field {
    		$r = array();
 		$args = array();
 		$is_hierarchical = is_taxonomy_hierarchical( $field['taxonomy'] );
+		$is_pagination = ($options['paged'] > 0);
 		$limit = 20;
 		$offset = 20 * ($options['paged'] - 1);
 		
@@ -108,7 +109,7 @@ class acf_field_taxonomy extends acf_field {
 		
 		// pagination
 		// - don't bother for hierarchial terms, we will need to load all terms anyway
-		if( !$is_hierarchical ) {
+		if( !$is_hierarchical && $is_pagination ) {
 			
 			$args['offset'] = $offset;
 			$args['number'] = $limit;
@@ -151,7 +152,11 @@ class acf_field_taxonomy extends acf_field {
 			
 			
 			// fake pagination
-			$terms = array_slice($terms, $offset, $limit);
+			if( $is_pagination ) {
+				
+				$terms = array_slice($terms, $offset, $limit);
+				
+			}
 			
 		}
 		
@@ -583,7 +588,7 @@ class acf_field_taxonomy extends acf_field {
 		?>
 <div <?php acf_esc_attr_e($div); ?>>
 	<?php if( $field['add_term'] && current_user_can( $taxonomy->cap->manage_terms) ): ?>
-	<a href="#" class="acf-icon acf-icon-plus acf-js-tooltip small acf-soh-target" data-name="add" title="<?php echo sprintf( __('Add new %s ', 'acf'), $taxonomy->labels->singular_name ); ?>"></a>
+	<a href="#" class="acf-icon -plus acf-js-tooltip small acf-soh-target" data-name="add" title="<?php echo sprintf( __('Add new %s ', 'acf'), $taxonomy->labels->singular_name ); ?>"></a>
 	<?php endif;
 
 	if( $field['field_type'] == 'select' ) {

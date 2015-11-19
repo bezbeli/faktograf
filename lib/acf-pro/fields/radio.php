@@ -156,7 +156,7 @@ class acf_field_radio extends acf_field {
 					
 				}
 				
-				$e .= '<li><input ' . acf_esc_attr( $atts ) . '/><label for="' . $atts['id'] . '">' . $label . '</label></li>';
+				$e .= '<li><label><input ' . acf_esc_attr( $atts ) . '/>' . $label . '</label></li>';
 			}
 		
 		}
