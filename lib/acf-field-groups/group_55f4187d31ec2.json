@@ -363,6 +363,22 @@
                             "default_value": 0
                         },
                         {
+                            "key": "field_564ef7f702cb4",
+                            "label": "Show categories in post title",
+                            "name": "show_categories_in_post_title",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 20,
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0
+                        },
+                        {
                             "key": "field_5627e46863329",
                             "label": "Offset posts",
                             "name": "offset_posts",
@@ -1726,5 +1742,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1448011315
+    "modified": 1448015902
 }
