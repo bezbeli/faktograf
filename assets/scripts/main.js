@@ -29,7 +29,7 @@
             delay: 2000
           });
         ias.extension(new IASSpinnerExtension({
-            src: "http://faktograf.dv/site/wp-content/themes/faktograf/dist/images/infinity-loader.gif",
+            src: "http://faktograf.hr/site/wp-content/themes/faktograf/dist/images/infinity-loader.gif",
             html: '<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>'
         }));
         ias.extension(new IASTriggerExtension({
