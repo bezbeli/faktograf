@@ -14,6 +14,7 @@ $sticky =               get_option('sticky_posts');
 switch ($posts_source) {
     case 'pick_from_category':
         $pick_from_category = get_sub_field("pick_from_category");
+        $exclude_category = get_sub_field("exclude_category");
         $display_count = $show_posts;
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $offset = ( $paged - 1 ) * $display_count+$offset_posts;
@@ -26,6 +27,12 @@ switch ($posts_source) {
                     'taxonomy'  => 'category',
                     'field'     => 'id',
                     'terms'     => $pick_from_category
+                ),
+                array(
+                    'taxonomy'  => 'category',
+                    'field'     => 'id',
+                    'terms'     => $exclude_category,
+                    'operator' => 'NOT IN',
                 ),
             ),
         );

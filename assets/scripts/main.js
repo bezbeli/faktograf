@@ -37,7 +37,7 @@
             text: "Više..."
         }));
         ias.extension(new IASNoneLeftExtension({
-            text: 'Nema više objava'
+            text: ''
         }));
       },
       finalize: function() {
