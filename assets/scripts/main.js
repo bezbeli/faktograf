@@ -26,13 +26,14 @@
             item: ".item",
             pagination: ".pagination",
             next: ".next-posts",
-            delay: 1000
+            delay: 2000
           });
         ias.extension(new IASSpinnerExtension({
-            src: "http://faktograf.dv/site/wp-content/themes/faktograf/dist/images/ajax-loader.gif"
+            src: "http://faktograf.dv/site/wp-content/themes/faktograf/dist/images/infinity-loader.gif",
+            html: '<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>'
         }));
         ias.extension(new IASTriggerExtension({
-            offset: 3,
+            offset: 20,
             text: "Više..."
         }));
         ias.extension(new IASNoneLeftExtension({

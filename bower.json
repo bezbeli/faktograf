@@ -18,9 +18,9 @@
   "overrides": {
     "jquery-ias": {
       "main": [
-        "src/callbacks.js",
-        "src/jquery-ias.js",
-        "src/extension/*"
+        "./src/callbacks.js",
+        "./src/jquery-ias.js",
+        "./src/extension/*"
         ]
       },
     "bootstrap-sass": {
