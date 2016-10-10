@@ -12,6 +12,21 @@ $sticky =               get_option('sticky_posts');
 // $sticky = array_slice( $sticky, 0, 5 );
 
 switch ($posts_source) {
+    case 'pick_post_type':
+    
+        $pick_post_type = get_sub_field("pick_post_type");
+        $display_count = $show_posts;
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $offset = ( $paged - 1 ) * $display_count+$offset_posts;
+        $args = array(
+            'post_type'         => $pick_post_type,
+            'posts_per_page'    => $show_posts,
+            'paged'             => $paged,
+            'offset'            => $offset,
+            'orderby'           => 'name',
+            'order'             => 'ASC'
+        );
+        break;
     case 'pick_from_category':
         $pick_from_category = get_sub_field("pick_from_category");
         $exclude_category = get_sub_field("exclude_category");
@@ -77,7 +92,7 @@ if ( $wp_query->have_posts() ) {
                      echo '<div class="item col-sm-4">';
                      break;
                    case '4columns':
-                     echo '<div class="item col-sm-3">';
+                     echo '<div class="item col-sm-3 col-md-6 col-lg-3">';
                      break;
                    case '6columns':
                      echo '<div class="item col-sm-2">';

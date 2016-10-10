@@ -23,7 +23,9 @@ $sage_includes = [
   'lib/slider.php',
   'lib/video.php',
   'lib/editor_styles.php',
-  'lib/acf-pro.php'  // Theme wrapper class
+  'lib/acf-pro.php',  // Theme wrapper class
+  'lib/custom_post_types.php',
+  'lib/custom_taxonomies.php'  
 ];
 
 foreach ($sage_includes as $file) {

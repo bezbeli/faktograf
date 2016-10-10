@@ -50,6 +50,31 @@
             "save_other_choice": 0,
             "default_value": "",
             "layout": "horizontal"
+        },
+        {
+            "key": "field_57208122a62b3",
+            "label": "Obe\u0107anja",
+            "name": "obecanja",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": [
+                "Nije ocijenjeno",
+                "Zapo\u010deto",
+                "Prekr\u0161eno",
+                "Djelomi\u010dno ispunjeno",
+                "Ispunjeno"
+            ],
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -64,6 +89,18 @@
                 "operator": "==",
                 "value": "category:ocjena-tocnosti"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:obecanja"
+            }
         ]
     ],
     "menu_order": 0,
@@ -74,5 +111,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1445463253
+    "modified": 1461832920
 }

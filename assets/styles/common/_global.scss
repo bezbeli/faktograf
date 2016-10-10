@@ -138,13 +138,13 @@ hr{
 }
 
 .ocjena{
-	font-size: $font-size-xs;
+	font-size: 11px;
 	padding: 0 .25em 1em;
 	background-color: hsla(0,0,0,.5);
 	color: #FFF;
 	width: 64px;
 	text-align: center;
-	line-height: 1em
+	line-height: 1.2em
 }
 
 .ico{
@@ -221,6 +221,22 @@ hr{
 
 .ocjena5{
 	border-bottom: 3px solid $fakt-color;
+}
+
+.obecanje1{
+	border-bottom: 3px solid #FF0;
+}
+
+.obecanje2{
+	border-bottom: 3px solid #F00;
+}
+
+.obecanje3{
+	border-bottom: 3px solid #F90;
+}
+
+.obecanje4{
+	border-bottom: 3px solid #0C0;
 }
 
 .ocjena-single-1,

@@ -16,6 +16,11 @@ use Roots\Sage\Wrapper;
     <![endif]-->
     <?php
       do_action('get_header');
+      // PROMO BOX
+      if (is_page_template( "template-promo-box.php" )) :
+        include Wrapper\template_path();
+      else :
+      // REGULAR CONTENT  
       get_template_part('templates/header');
       if (is_page_template( "templates/template-layout-builder.php" )) {
         echo '<div class="wrap container-fluid" role="document">';
@@ -100,6 +105,7 @@ use Roots\Sage\Wrapper;
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');
+      endif; // PROMOBOX ENDIF
       wp_footer();
     ?>
   </body>

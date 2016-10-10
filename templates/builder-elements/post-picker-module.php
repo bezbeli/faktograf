@@ -39,6 +39,11 @@
 
             $posts_source = get_sub_field("posts_source");
             switch ($posts_source) {
+                case 'pick_post_type':
+                    // echo '<h2>Posts from category picker</h2>';
+                    get_template_part('templates/builder-elements/post-picker-module-elements/picked-post-type' );
+                    break;
+                
                 case 'pick_from_category':
                     // echo '<h2>Posts from category picker</h2>';
                     get_template_part('templates/builder-elements/post-picker-module-elements/picked-from-category' );

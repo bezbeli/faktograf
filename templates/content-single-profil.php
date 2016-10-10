@@ -19,9 +19,6 @@
         <div class="entry-content">
           <?php the_content(); ?>
         </div>
-        <hr>
-        <?php get_template_part('templates/part-related-articles' );?>
       </div>
-        <?php get_template_part('templates/part-featured-articles' );?>
   </article>
 <?php endwhile; ?>

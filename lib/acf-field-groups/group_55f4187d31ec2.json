@@ -116,6 +116,27 @@
                             "disabled": 0
                         },
                         {
+                            "key": "field_5718ec1c2ec22",
+                            "label": "Block title link",
+                            "name": "block_title_link",
+                            "type": "text",
+                            "instructions": "Add block title link, leave empty for no link.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 75,
+                                "class": "blok-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
                             "key": "field_55f41518b78dc",
                             "label": "Block title style",
                             "name": "block_title_style",
@@ -159,6 +180,7 @@
                                 "id": ""
                             },
                             "choices": {
+                                "pick_post_type": "Pick post type",
                                 "pick_from_category": "Pick from category",
                                 "custom_post_picker": "Custom post picker",
                                 "parent_page": "Parent page"
@@ -221,6 +243,41 @@
                             "multiple": 0,
                             "return_format": "id",
                             "ui": 1
+                        },
+                        {
+                            "key": "field_571fb502b47eb",
+                            "label": "Pick post type",
+                            "name": "pick_post_type",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_55eec2f006232",
+                                        "operator": "==",
+                                        "value": "pick_post_type"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": 50,
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "post": "Post",
+                                "page": "Page",
+                                "profil": "Profil"
+                            },
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 1,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "disabled": 0,
+                            "readonly": 0
                         },
                         {
                             "key": "field_55eec152fe212",
@@ -329,6 +386,13 @@
                                         "operator": "==",
                                         "value": "pick_from_category"
                                     }
+                                ],
+                                [
+                                    {
+                                        "field": "field_55eec2f006232",
+                                        "operator": "==",
+                                        "value": "pick_post_type"
+                                    }
                                 ]
                             ],
                             "wrapper": {
@@ -391,6 +455,13 @@
                                         "field": "field_55eec2f006232",
                                         "operator": "==",
                                         "value": "pick_from_category"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "field": "field_55eec2f006232",
+                                        "operator": "==",
+                                        "value": "pick_post_type"
                                     }
                                 ]
                             ],
@@ -1742,5 +1813,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1448015902
+    "modified": 1461696965
 }
