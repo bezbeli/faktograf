@@ -2,7 +2,7 @@
   <div class="container">
     <?php //dynamic_sidebar('sidebar-footer'); ?>
     <p class="text-center">
-    	<a href="<?php echo get_bloginfo('home'); ?>"><strong>© faktograf.hr</strong></a> <strong><?php the_time('Y'); ?></strong>
+    	<a href="<?php echo get_bloginfo('home'); ?>"><strong>© faktograf.hr</strong></a> <strong>2017</strong>
     </p>
   </div>
 
