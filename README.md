@@ -4,10 +4,6 @@ Faktograf is based on sage theme, more about sage below.
 
 ## Required plugins:
 
-* [Google Analytics by MonsterInsights](https://www.monsterinsights.com/)
-* [Monarch](https://www.elegantthemes.com/plugins/monarch/)
-* [Yoast SEO](https://yoast.com/)
-* [Wodrfence](https://www.wordfence.com/)
 * [WP-Polls](https://wordpress.org/plugins/wp-polls/)
 
 Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
