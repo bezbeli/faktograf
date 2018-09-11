@@ -21,8 +21,10 @@
     );
 ?>
     <div class="text-center" style="padding-top:1rem;">
+            <img style="width:auto;height:50px" title="Sufinancira Europska unija u okviru programa Europa za građane" src="<?php echo get_template_directory_uri().'/dist/images/eu.svg'; ?>" alt="Sufinancira Europska unija u okviru programa Europa za građane">
+        &nbsp;
         <a title="International Fact-Checking Network" href="https://www.poynter.org/international-fact-checking-network-fact-checkers-code-principles" target="_blank">
-            <img style="width:100px;height:100px" title="International Fact-Checking Network" src="<?php echo get_template_directory_uri().'/dist/images/IFCN3.png'; ?>" alt="International Fact-Checking Network">
+            <img style="width:auto;height:50px" title="International Fact-Checking Network" src="<?php echo get_template_directory_uri().'/dist/images/IFCN_Signatory_badge.svg'; ?>" alt="International Fact-Checking Network">
         </a>
     </div>
 </footer>
@@ -46,7 +48,7 @@ window.cookieconsent.initialise({
     "message": "Faktograf.hr koristi kolačiće za pružanje boljeg korisničkog iskustva i funkcionalnosti. Cookie postavke mogu se kontrolirati i konfigurirati u vašem web pregledniku. Nastavkom pregleda web stranice Faktograf.hr slažete se s korištenjem kolačića.",
     "dismiss": "Slažem se",
     "link": "Saznaj više",
-    "href": "http://faktograf.hr/kolacici/"
+    "href": "https://faktograf.hr/kolacici/"
   }
 })});
 </script>
