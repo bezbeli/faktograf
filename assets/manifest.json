@@ -22,6 +22,6 @@
     }
   },
   "config": {
-    "devUrl": "http://faktograf.dv/"
+    "devUrl": "http://faktograf.test/"
   }
 }
