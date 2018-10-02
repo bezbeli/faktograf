@@ -7,6 +7,8 @@
 // endbower
 
 @import "common/_global";
+@import "common/_ratios";
+@import "common/_borders";
 @import "components/_buttons";
 @import "components/_comments";
 @import "components/_forms";
@@ -14,8 +16,10 @@
 @import "components/_wp-classes";
 @import "components/_isotope";
 @import "components/_slickslider";
+@import "components/_paginator";
 @import "components/_typo";
 @import "components/_navbar";
+@import "components/_ocjene";
 @import "layouts/_header";
 @import "layouts/_sidebar";
 @import "layouts/_footer";

@@ -3,7 +3,7 @@
     <?php //dynamic_sidebar('sidebar-footer');?>
     <p class="text-center">
       <a href="<?php echo bloginfo('url'); ?>"><strong>© faktograf.hr</strong></a>
-      <strong>2017</strong>
+      <strong>2018</strong>
     </p>
   </div>
 
@@ -22,12 +22,12 @@
     );
 ?>
   <div class="text-center" style="padding-top:1rem;">
-    <img style="width:auto;height:50px" title="Sufinancira Europska unija u okviru programa Europa za građane" src="<?php echo get_template_directory_uri().'/dist/images/eu.svg'; ?>"
+    <img style="width:auto;height:50px" title="Sufinancira Europska unija u okviru programa Europa za građane" src="https://faktograf.hr/site/wp-content/themes/faktograf/dist/images/eu.svg"
       alt="Sufinancira Europska unija u okviru programa Europa za građane">
     &nbsp;
     <a title="International Fact-Checking Network" href="https://www.poynter.org/international-fact-checking-network-fact-checkers-code-principles"
       target="_blank">
-      <img style="width:auto;height:50px" title="International Fact-Checking Network" src="<?php echo get_template_directory_uri().'/dist/images/IFCN_Signatory_badge.svg'; ?>"
+      <img style="width:auto;height:50px" title="International Fact-Checking Network" src="https://faktograf.hr/site/wp-content/themes/faktograf/dist/images/IFCN_Signatory_badge.svg"
         alt="International Fact-Checking Network">
     </a>
   </div>

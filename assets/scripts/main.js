@@ -17,27 +17,28 @@
   var Sage = {
     // All pages
     'common': {
+
       init: function() {
         $(".slade").velocity("fadeIn", {
-            stagger: 200
+          stagger: 200
         });
         var ias = jQuery.ias({
-            container: ".infinite-scroll",
-            item: ".item",
-            pagination: ".pagination",
-            next: ".next-posts",
-            delay: 2000
-          });
+          container: ".infinite-scroll",
+          item: ".item",
+          pagination: ".pagination",
+          next: ".next-posts",
+          delay: 2000
+        });
         ias.extension(new IASSpinnerExtension({
-            src: "http://faktograf.hr/site/wp-content/themes/faktograf/dist/images/infinity-loader.gif",
-            html: '<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>'
+          src: "https://faktograf.hr/site/wp-content/themes/faktograf/dist/images/infinity-loader.gif",
+          html: '<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>'
         }));
         ias.extension(new IASTriggerExtension({
-            offset: 20,
-            text: "Više..."
+          offset: 20,
+          text: "Više..."
         }));
         ias.extension(new IASNoneLeftExtension({
-            text: ''
+          text: ''
         }));
       },
       finalize: function() {

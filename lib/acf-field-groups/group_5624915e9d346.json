@@ -66,8 +66,8 @@
             },
             "choices": [
                 "Nije ocijenjeno",
-                "Zapo\u010deto",
                 "Prekr\u0161eno",
+                "Zapo\u010deto",
                 "Djelomi\u010dno ispunjeno",
                 "Ispunjeno"
             ],
@@ -111,5 +111,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1461832920
+    "modified": 1538083771
 }

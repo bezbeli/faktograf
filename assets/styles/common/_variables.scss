@@ -23,12 +23,16 @@ $brand-info:            		#5bc0de !default;
 $brand-warning:         		#f0ad4e !default;
 $brand-danger:          		#d9534f !default;
 
-$ni-f-od-fakta-color:			#000000 !default;
-$ni-pola-fakta-color:			#FF0000 !default;
-$polufakt-color:			 	#FF9900 !default;
-$tri-kvarta-fakta-color: 		#FFFF00 !default;
-$fakt-color:				 	#00CC00 !default;
+$ni-f-od-fakta-color:			#000 !default;
+$ni-pola-fakta-color:			#F00 !default;
+$polufakt-color:			 	#F90 !default;
+$tri-kvarta-fakta-color: 		#CC0 !default;
+$fakt-color:				 	#693 !default;
 
+$prekrseno-color:               #F00 !default;
+$zapoceto-color:                #F90 !default;
+$djelomicno-ispunjeno-color:    #CC0 !default;
+$ispunjeno-color:               #693 !default;
 
 //== Scaffolding
 //
@@ -45,7 +49,6 @@ $link-color:            $brand-primary !default;
 $link-hover-color:      darken($link-color, 15%) !default;
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
-
 
 //== Typography
 //

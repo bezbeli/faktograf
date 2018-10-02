@@ -1,0 +1,297 @@
+
+.ocjena{
+    font-size: 8px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 0 0 .5em;
+    background-color: hsla(0,0,0,.5);
+    color: #FFF;
+    width: 64px;
+    text-align: center;
+    line-height: 1.2em
+}
+
+.ico{
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin-bottom: .5em;
+}
+
+.ocjena-single{
+    font-size: $font-size-xs;
+    padding: .75em 1em;
+    margin: 0 3px;
+    background-color: hsla(0,0,0,0.2);
+    color: $text-color;
+    display: block;
+    line-height: 1.2em;
+    text-align: center;
+    z-index: 9;
+}
+
+.ocjena-single p{
+    margin: 0;
+    padding: 0;
+}
+
+.featured-image .ocjena-single{
+    width: 64px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    background-color: hsla(0,0,0,0.1);
+}
+
+.ocjena1{
+    border-bottom: 3px solid $ni-f-od-fakta-color;
+}
+
+.ocjena2{
+    border-bottom: 3px solid $ni-pola-fakta-color;
+}
+
+.ocjena3{
+    border-bottom: 3px solid $polufakt-color;
+}
+
+.ocjena4{
+    border-bottom: 3px solid $tri-kvarta-fakta-color;
+}
+
+.ocjena5{
+    border-bottom: 3px solid $fakt-color;
+}
+
+.obecanje-zapoceto{
+    border-bottom: 3px solid $zapoceto-color;
+}
+
+.obecanje-prekrseno{
+    border-bottom: 3px solid $prekrseno-color;
+}
+
+.obecanje-djelomicno-ispunjeno{
+    border-bottom: 3px solid $djelomicno-ispunjeno-color;
+}
+
+.obecanje-ispunjeno{
+    border-bottom: 3px solid $ispunjeno-color;
+}
+
+.ocjena-single-1,
+.ocjena-single-2,
+.ocjena-single-3,
+.ocjena-single-4,
+.ocjena-single-5{
+    border: 1px solid #CCC;
+    background-color: transparent;
+    margin-bottom: 3px;
+}
+
+.ocjena-single{
+    font-size: $font-size-xs;
+    padding: .75em 1em;
+    margin: 0 3px;
+    background-color: hsla(0,0,0,0.2);
+    color: $text-color;
+    display: block;
+    line-height: 1.2em;
+    text-align: center;
+    z-index: 9;
+}
+
+.ocjena-single p{
+    margin: 0;
+    padding: 0;
+}
+
+.featured-image .ocjena-single{
+    width: 64px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    background-color: hsla(0,0,0,0.1);
+}
+
+.ocjena1{
+    border-bottom: 3px solid $ni-f-od-fakta-color;
+}
+
+.ocjena2{
+    border-bottom: 3px solid $ni-pola-fakta-color;
+}
+
+.ocjena3{
+    border-bottom: 3px solid $polufakt-color;
+}
+
+.ocjena4{
+    border-bottom: 3px solid $tri-kvarta-fakta-color;
+}
+
+.ocjena5{
+    border-bottom: 3px solid $fakt-color;
+}
+
+.obecanje1{
+    border-bottom: 3px solid #FF0;
+}
+
+.obecanje2{
+    border-bottom: 3px solid #F00;
+}
+
+.obecanje3{
+    border-bottom: 3px solid #F90;
+}
+
+.obecanje4{
+    border-bottom: 3px solid #0C0;
+}
+
+.ocjena-single-1,
+.ocjena-single-2,
+.ocjena-single-3,
+.ocjena-single-4,
+.ocjena-single-5{
+    border: 1px solid #CCC;
+    background-color: transparent;
+    margin-bottom: 3px;
+}
+
+.bg-nije-ocijenjeno {
+    background-color: transparent;
+}
+.bg-prekrseno {
+    background-color: $prekrseno-color;
+}
+.bg-zapoceto {
+    background-color: $zapoceto-color;
+}
+.bg-djelomicno-ispunjeno {
+    background-color: $djelomicno-ispunjeno-color;
+}
+.bg-ispunjeno {
+    background-color: $ispunjeno-color;
+}
+
+// Ocjene obećanja
+
+.lenta {
+  position: absolute;
+  text-align: center;
+  font-size: 9px !important;
+  background: $brand-info;
+  z-index: 10;
+  right: -4px;
+  top: 8px;
+  line-height: 24px;
+  height: 24px;
+}
+
+.lenta span {
+  text-transform: uppercase;
+  font-size: 9px !important;
+  padding: 0px 10px;
+  margin: 0px;
+  display: block;
+  font-weight: bold;
+}
+
+.lenta:before {
+  position: absolute;
+  display: block;
+  border: 12px solid $brand-primary;
+  bottom: 0em;
+  content: '';
+  z-index: -1;
+  left: -12px;
+  border-left-color: transparent;
+}
+
+.lenta:after {
+  position: absolute;
+  display: block;
+  border: 2px solid $brand-primary;
+  bottom: -4px;
+  content: '';
+  z-index: -1;
+  right: 0;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.lenta.prekrseno
+ {
+  background: $prekrseno-color;
+  color: $gray-lighter;
+}
+
+.lenta.prekrseno:before {
+  border: 12px solid $prekrseno-color;
+  border-left-color: transparent;
+}
+
+.lenta.prekrseno:after {
+  border: 2px solid darken($prekrseno-color,25%);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.lenta.zapoceto
+ {
+  background: $zapoceto-color;
+  color: $gray-lighter;
+}
+
+.lenta.zapoceto:before {
+  border: 12px solid $zapoceto-color;
+  border-left-color: transparent;
+}
+
+.lenta.zapoceto:after {
+  border: 2px solid darken($zapoceto-color,25%);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.lenta.djelomicno-ispunjeno
+ {
+  background: $djelomicno-ispunjeno-color;
+  color: $gray-dark;
+}
+
+.lenta.djelomicno-ispunjeno:before {
+  border: 12px solid $djelomicno-ispunjeno-color;
+  border-left-color: transparent;
+}
+
+.lenta.djelomicno-ispunjeno:after {
+  border: 2px solid darken($djelomicno-ispunjeno-color,25%);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.lenta.ispunjeno
+ {
+  background: $ispunjeno-color;
+  color: $gray-lighter;
+}
+
+.lenta.ispunjeno:before {
+  border: 12px solid $ispunjeno-color;
+  border-left-color: transparent;
+}
+
+.lenta.ispunjeno:after {
+  border: 2px solid darken($ispunjeno-color,25%);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}

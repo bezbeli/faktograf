@@ -15,7 +15,7 @@
 }
 
 .space-bottom-sm{
-	margin-bottom: 0px;
+	margin-bottom: 1em;
 }
 
 .space-bottom-md{
@@ -127,30 +127,14 @@ hr{
 	color: #999;
 }
 
-.pop{
-		color: #FFF;
-		text-shadow: $carousel-text-shadow;
+.pop {
+	color: #FFF;
+	text-shadow: $carousel-text-shadow;
 }
 
 .pop:hover{
-		color: #FFF;
-		text-decoration: none;
-}
-
-.ocjena{
-	font-size: 11px;
-	padding: 0 .25em 1em;
-	background-color: hsla(0,0,0,.5);
 	color: #FFF;
-	width: 64px;
-	text-align: center;
-	line-height: 1.2em
-}
-
-.ico{
-	overflow: hidden;
-	display: block;
-	position: relative;
+	text-decoration: none;
 }
 
 .block-wrapper{
@@ -159,6 +143,8 @@ hr{
 	display: block;
 	background-color: #000;
 	position: relative;
+    background-position: center;
+    background-size: cover
 }
 
 .dimmer{
@@ -173,80 +159,6 @@ hr{
 .featured-image{
 	position: relative;
 	display: block;
-}
-
-.ocjena-single{
-	font-size: $font-size-xs;
-	padding: .75em 1em;
-	margin: 0 3px;
-	background-color: hsla(0,0,0,0.2);
-	color: $text-color;
-	display: block;
-	line-height: 1.2em;
-	text-align: center;
-	z-index: 9;
-}
-
-.ocjena-single p{
-	margin: 0;
-	padding: 0;
-}
-
-.featured-image .ocjena-single{
-	width: 64px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	padding: 0;
-	color: #FFF;
-	background-color: hsla(0,0,0,0.1);
-}
-
-.ocjena1{
-	border-bottom: 3px solid $ni-f-od-fakta-color;
-}
-
-.ocjena2{
-	border-bottom: 3px solid $ni-pola-fakta-color;
-}
-
-.ocjena3{
-	border-bottom: 3px solid $polufakt-color;
-}
-
-.ocjena4{
-	border-bottom: 3px solid $tri-kvarta-fakta-color;
-}
-
-.ocjena5{
-	border-bottom: 3px solid $fakt-color;
-}
-
-.obecanje1{
-	border-bottom: 3px solid #FF0;
-}
-
-.obecanje2{
-	border-bottom: 3px solid #F00;
-}
-
-.obecanje3{
-	border-bottom: 3px solid #F90;
-}
-
-.obecanje4{
-	border-bottom: 3px solid #0C0;
-}
-
-.ocjena-single-1,
-.ocjena-single-2,
-.ocjena-single-3,
-.ocjena-single-4,
-.ocjena-single-5{
-	border: 1px solid #CCC;
-	background-color: transparent;
-	margin-bottom: 3px;
 }
 
 .pullquote{
@@ -353,4 +265,41 @@ hr{
 
 .grid-block{
 	background-color: #000;
+}
+
+.w-25 {
+	width: 25%;
+}
+
+.w-50 {
+	width: 50%;
+}
+
+.w-75 {
+	width: 75%;
+}
+
+.p-1{
+	padding: 1em;
+}
+
+.p-2{
+	padding: 2em;
+}
+
+.m-1{
+	margin: 1em;
+}
+
+.m-2{
+	margin: 2em;
+}
+
+.teaser a{
+	color: $gray-light;
+
+	&:hover {
+		text-decoration: none;
+		color: $gray-darker;
+	}
 }

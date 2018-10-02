@@ -25,14 +25,17 @@ $sage_includes = [
   'lib/editor_styles.php',
   'lib/acf-pro.php',  // Theme wrapper class
   'lib/custom_post_types.php',
-  'lib/custom_taxonomies.php'  
+  'lib/custom_og_image.php',
+  'lib/custom_taxonomies.php',
+  'lib/after_content.php',
+  'lib/claim_review.php',
 ];
 
 foreach ($sage_includes as $file) {
-  if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
-  }
+    if (!$filepath = locate_template($file)) {
+        trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
+    }
 
-  require_once $filepath;
+    require_once $filepath;
 }
 unset($file, $filepath);

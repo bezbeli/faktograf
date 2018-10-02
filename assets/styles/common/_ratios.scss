@@ -1,0 +1,56 @@
+
+.ratio,.ratio-16x9,.ratio-1x1,.ratio-2x1,.ratio-3x1,.ratio-3x2,.ratio-4x1,.ratio-4x3,.ratio-full-height {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    position: relative
+}
+
+.photo {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center
+}
+
+.image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center
+}
+
+.ratio-full-height {
+    min-height: 100%;
+    padding-bottom: 100%
+}
+
+.ratio-1x1 {
+    padding-bottom: 100%
+}
+
+.ratio-4x3 {
+    padding-bottom: 75%
+}
+
+.ratio-3x2 {
+    padding-bottom: 66.66%
+}
+
+.ratio-16x9 {
+    padding-bottom: 56.25%
+}
+
+.ratio-2x1 {
+    padding-bottom: 50%
+}
+
+.ratio-3x1 {
+    padding-bottom: 33.33%
+}
+
+.ratio-4x1 {
+    padding-bottom: 25%
+}
